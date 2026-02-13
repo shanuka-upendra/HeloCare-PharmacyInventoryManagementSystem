@@ -29,6 +29,13 @@ public class DashboardFormController {
 
     @FXML
     void btnMedicineOnAction(ActionEvent event) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/medicine_form.fxml"))));
+            stage.show();
+            stage.setTitle("HeloCare - Medicine");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
