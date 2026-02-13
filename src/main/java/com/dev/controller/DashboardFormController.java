@@ -24,6 +24,13 @@ public class DashboardFormController {
 
     @FXML
     void btnInventoryOnAction(ActionEvent event) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/inventory_form.fxml"))));
+            stage.show();
+            stage.setTitle("HeloCare - Inventory");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
