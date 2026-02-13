@@ -2,7 +2,6 @@ package com.dev.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
@@ -12,19 +11,10 @@ public class SupplierFormController {
     private TableColumn<?, ?> colBatchNumber;
 
     @FXML
-    private TableColumn<?, ?> colBrandName1;
-
-    @FXML
-    private TableColumn<?, ?> colCostPrice;
-
-    @FXML
     private TableColumn<?, ?> colExpDate;
 
     @FXML
     private TableColumn<?, ?> colManDate;
-
-    @FXML
-    private TableColumn<?, ?> colMedicineID;
 
     @FXML
     private TableColumn<?, ?> colPrice;
@@ -33,22 +23,10 @@ public class SupplierFormController {
     private TableColumn<?, ?> colQtyOnHand;
 
     @FXML
-    private TableColumn<?, ?> colSellingPrice;
-
-    @FXML
-    private TableColumn<?, ?> colStockID;
-
-    @FXML
     private TableColumn<?, ?> colSupplierId;
 
     @FXML
     private TextField txtCostPrice;
-
-    @FXML
-    private TextField txtIBatchNumber;
-
-    @FXML
-    private DatePicker txtManufactureDateExp;
 
     @FXML
     private TextField txtMedicineID;
@@ -58,9 +36,6 @@ public class SupplierFormController {
 
     @FXML
     private TextField txtSellingPrice;
-
-    @FXML
-    private DatePicker txtStockDateExp;
 
     @FXML
     private TextField txtStockID;
