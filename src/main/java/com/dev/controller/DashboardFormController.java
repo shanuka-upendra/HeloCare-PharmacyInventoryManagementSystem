@@ -46,6 +46,13 @@ public class DashboardFormController {
 
     @FXML
     void btnSupplierOnAction(ActionEvent event) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplier_form.fxml"))));
+            stage.show();
+            stage.setTitle("HeloCare - Supplier");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
