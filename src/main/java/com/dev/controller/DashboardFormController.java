@@ -47,11 +47,6 @@ public class DashboardFormController {
     }
 
     @FXML
-    void btnSalesBillingOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void btnSupplierOnAction(ActionEvent event) {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplier_form.fxml"))));
@@ -63,4 +58,25 @@ public class DashboardFormController {
 
     }
 
+    @FXML
+    void btnSalesBillingOnAction(ActionEvent event) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/sales_and_billing_form.fxml"))));
+            stage.show();
+            stage.setTitle("HeloCare - Sales & Billing");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void btnSaleDetailsOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/sales_details_form.fxml"))));
+            stage.show();
+            stage.setTitle("HeloCare - Sale Details");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
