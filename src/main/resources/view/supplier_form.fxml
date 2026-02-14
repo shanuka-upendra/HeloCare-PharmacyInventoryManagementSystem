@@ -60,7 +60,7 @@
       </Button>
       <TextField fx:id="txtQtyOnStock" layoutX="380.0" layoutY="153.0" promptText="Phone NO:" />
       <TextField fx:id="txtCostPrice" layoutX="540.0" layoutY="155.0" promptText="Email" />
-      <Pane prefHeight="634.0" prefWidth="235.0" style="-fx-background-color: #9dd1cc;">
+      <Pane prefHeight="636.0" prefWidth="235.0" style="-fx-background-color: #9dd1cc;">
          <children>
             <Label layoutX="21.0" layoutY="51.0" prefHeight="59.0" prefWidth="186.0" text="HeloCare - PIMS">
                <font>

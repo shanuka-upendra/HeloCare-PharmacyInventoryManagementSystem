@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="646.0" prefWidth="994.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dev.controller.InventoryFormController">
+<AnchorPane prefHeight="634.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dev.controller.InventoryFormController">
    <children>
       <ImageView fitHeight="634.0" fitWidth="591.0" layoutX="324.0" layoutY="12.0" opacity="0.15">
          <image>
