@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dev.controller.SalesDetailsFormController">
+   <children>
+      <AnchorPane prefHeight="634.0" prefWidth="1000.0">
+         <children>
+            <ImageView fitHeight="634.0" fitWidth="591.0" layoutX="314.0" layoutY="2.0" opacity="0.15">
+               <image>
+                  <Image url="@../../../../../../../Users/shanu/OneDrive/Pictures/2374046.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtSaleID" layoutX="381.0" layoutY="120.0" promptText="Sale ID" />
+            <Label layoutX="546.0" layoutY="52.0" prefHeight="53.0" prefWidth="149.0" text="Sale Details ">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtTotalAmount" layoutX="700.0" layoutY="120.0" promptText="Total Amount" />
+            <TextField fx:id="txtTaxAmount" layoutX="700.0" layoutY="154.0" promptText="Amount" />
+            <TableView layoutX="276.0" layoutY="279.0" prefHeight="336.0" prefWidth="676.0">
+               <columns>
+                  <TableColumn fx:id="colSaleDetailsID" prefWidth="96.0" text="Sale Details ID" />
+                  <TableColumn fx:id="colSaleId" prefWidth="93.0" text="Sale ID" />
+                  <TableColumn fx:id="colBatchId" prefWidth="105.0" text="Batch ID" />
+                  <TableColumn fx:id="colQuantitySold" prefWidth="112.0" text="Quantity Sold" />
+                  <TableColumn fx:id="colUnitPrice" prefWidth="121.0" text="Unit Price" />
+                  <TableColumn fx:id="colSubTotal" prefWidth="146.0" text="Sub Total" />
+               </columns>
+            </TableView>
+            <Button layoutX="405.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnAddSaleDetailsOnAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #d5e8e7; -fx-border-color: black;" text="ADD" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="512.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnUpdateSaleDetailsOnAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #d5e8e7; -fx-border-color: black;" text="UPDATE" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="620.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnDeleteSaleDetailsOnAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #d5e8e7; -fx-border-color: black;" text="DELETE" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="728.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnSearchSaleDetailsOnAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #d5e8e7; -fx-border-color: black;" text="SEARCH" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TextField fx:id="txtDiscountAmount" layoutX="380.0" layoutY="153.0" promptText="Discount Amount" />
+            <Pane prefHeight="636.0" prefWidth="235.0" style="-fx-background-color: #9dd1cc;">
+               <children>
+                  <Label layoutX="21.0" layoutY="51.0" prefHeight="59.0" prefWidth="186.0" text="HeloCare - PIMS">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <Label layoutX="12.0" layoutY="588.0" prefHeight="34.0" prefWidth="67.0" text="V 1.1.1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="58.0" layoutY="594.0" prefHeight="24.0" prefWidth="75.0" text="© SMD">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ComboBox fx:id="cmbPaymentMethod" layoutX="539.0" layoutY="153.0" prefWidth="150.0" promptText="Payment Method" />
+            <DatePicker layoutX="541.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" promptText="Transaction Date" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
