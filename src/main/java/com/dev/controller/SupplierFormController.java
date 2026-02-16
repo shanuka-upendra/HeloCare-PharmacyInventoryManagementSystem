@@ -1,11 +1,25 @@
 package com.dev.controller;
 
+import com.dev.model.Supplier;
+import com.dev.service.SupplierService;
+import com.dev.service.impl.SupplierServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class SupplierFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SupplierFormController implements Initializable {
+
+    SupplierService supplierService = new SupplierServiceImpl();
+
+    @FXML
+    private TableView<Supplier> tblSupplier;
 
     @FXML
     private TableColumn<?, ?> colAddress;
@@ -45,22 +59,61 @@ public class SupplierFormController {
 
     @FXML
     void btnAddSupplierOnAction(ActionEvent event) {
+        supplierService.addSupplier(new Supplier(
+                Integer.parseInt(txtSupplierID.getText()),
+                txtSupplierName.getText(),
+                txtSupplierContact.getText(),
+                txtPhone.getText(),
+                txtEmail.getText(),
+                txtAddress.getText()
+        ));
+
+        loadTable();
 
     }
 
     @FXML
     void btnDeleteSupplierOnAction(ActionEvent event) {
-
+        supplierService.deleteSupplier(Integer.parseInt(txtSupplierID.getText()));
     }
 
     @FXML
     void btnSearchSupplierOnAction(ActionEvent event) {
+        supplierService.searchSupplierById(Integer.parseInt(txtSupplierID.getText()));
 
     }
 
     @FXML
     void btnUpdateSupplierOnAction(ActionEvent event) {
+        supplierService.updateSupplier(new Supplier(
+                Integer.parseInt(txtSupplierID.getText()),
+                txtSupplierName.getText(),
+                txtSupplierContact.getText(),
+                txtPhone.getText(),
+                txtEmail.getText(),
+                txtAddress.getText()
+        ));
+
+        loadTable();
 
     }
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadTable();
+
+        colSupplierId.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
+        colSupName.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
+        colContactPerson.setCellValueFactory(new PropertyValueFactory<>("contactPerson"));
+        colPhoneNo.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+
+
+    }
+
+    void loadTable(){
+        tblSupplier.setItems(supplierService.getAllSuppliers());
+    }
 }

@@ -27,14 +27,14 @@
       </Label>
       <TextField fx:id="txtSupplierContact" layoutX="700.0" layoutY="120.0" promptText="Contact Person" />
       <TextField fx:id="txtAddress" layoutX="700.0" layoutY="155.0" promptText="Address" />
-      <TableView layoutX="240.0" layoutY="290.0" prefHeight="336.0" prefWidth="749.0">
+      <TableView fx:id="tblSupplier" layoutX="240.0" layoutY="290.0" prefHeight="336.0" prefWidth="749.0">
          <columns>
             <TableColumn fx:id="colSupplierId" prefWidth="69.0" text="Supplier ID" />
             <TableColumn fx:id="colSupName" prefWidth="103.0" text="Supplier Name" />
             <TableColumn fx:id="colContactPerson" prefWidth="101.0" text="Contact Person" />
             <TableColumn fx:id="colPhoneNo" prefWidth="88.0" text="Phone Number" />
             <TableColumn fx:id="colEmail" prefWidth="199.0" text="Email" />
-            <TableColumn fx:id="colPrice" prefWidth="188.0" text="Address" />
+            <TableColumn fx:id="colAddress" prefWidth="188.0" text="Address" />
          </columns>
       </TableView>
       <TextField fx:id="txtSupplierName" layoutX="540.0" layoutY="120.0" promptText="Supplier Name" />

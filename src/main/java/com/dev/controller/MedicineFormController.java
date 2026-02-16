@@ -69,6 +69,7 @@ public class MedicineFormController implements Initializable {
         ));
 
         loadTable();
+        clearText();
     }
 
     @FXML
@@ -82,8 +83,6 @@ public class MedicineFormController implements Initializable {
         Medicine medicine = medicineService.searchMedicineById(Integer.parseInt(txtID.getText()));
 
         if(medicine != null) {
-            //setDataToFields(medicine);
-
             for (Medicine medItems : tblMedicine.getItems()){
                 if(medItems.getId().equals(medicine.getId())){
                     tblMedicine.getSelectionModel().select(medItems);
@@ -107,6 +106,7 @@ public class MedicineFormController implements Initializable {
         ));
 
         loadTable();
+        clearText();
     }
 
     @Override
@@ -123,5 +123,13 @@ public class MedicineFormController implements Initializable {
 
     void loadTable(){
         tblMedicine.setItems(medicineService.getAllMedicines());
+    }
+
+    void clearText(){
+        txtID.clear();
+        txtMedicineName.clear();
+        txtBrandName.clear();
+        txtCategory.clear();
+        txtDescription.clear();
     }
 }
