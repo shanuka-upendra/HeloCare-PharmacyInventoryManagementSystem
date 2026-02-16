@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Medicine {
     private Integer id;
     private String name;
-    private LocalDate expDate;
-    private Double price;
-    private Integer quantity;
+    private String brandName;
+    private String category;
+    private String description;
 }
