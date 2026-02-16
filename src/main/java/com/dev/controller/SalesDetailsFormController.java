@@ -2,14 +2,10 @@ package com.dev.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
 public class SalesDetailsFormController {
-
-    @FXML
-    private ComboBox<?> cmbPaymentMethod;
 
     @FXML
     private TableColumn<?, ?> colBatchId;
@@ -30,16 +26,22 @@ public class SalesDetailsFormController {
     private TableColumn<?, ?> colUnitPrice;
 
     @FXML
-    private TextField txtDiscountAmount;
+    private TextField txtBatchID;
+
+    @FXML
+    private TextField txtQtySold;
+
+    @FXML
+    private TextField txtSaleDetailsID;
 
     @FXML
     private TextField txtSaleID;
 
     @FXML
-    private TextField txtTaxAmount;
+    private TextField txtSubTotal;
 
     @FXML
-    private TextField txtTotalAmount;
+    private TextField txtUnitAmount;
 
     @FXML
     void btnAddSaleDetailsOnAction(ActionEvent event) {

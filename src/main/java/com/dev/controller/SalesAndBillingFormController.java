@@ -13,9 +13,6 @@ public class SalesAndBillingFormController {
     private ComboBox<?> cmbPaymentMethod;
 
     @FXML
-    private TableColumn<?, ?> colDiscountAmount;
-
-    @FXML
     private TableColumn<?, ?> colPaymentMethod;
 
     @FXML
@@ -33,8 +30,6 @@ public class SalesAndBillingFormController {
     @FXML
     private DatePicker txtDate;
 
-    @FXML
-    private TextField txtDiscountAmount;
 
     @FXML
     private TextField txtSaleID;

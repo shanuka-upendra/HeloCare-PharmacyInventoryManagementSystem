@@ -8,40 +8,40 @@ import javafx.scene.control.TextField;
 public class SupplierFormController {
 
     @FXML
-    private TableColumn<?, ?> colBatchNumber;
+    private TableColumn<?, ?> colAddress;
 
     @FXML
-    private TableColumn<?, ?> colExpDate;
+    private TableColumn<?, ?> colContactPerson;
 
     @FXML
-    private TableColumn<?, ?> colManDate;
+    private TableColumn<?, ?> colEmail;
 
     @FXML
-    private TableColumn<?, ?> colPrice;
+    private TableColumn<?, ?> colPhoneNo;
 
     @FXML
-    private TableColumn<?, ?> colQtyOnHand;
+    private TableColumn<?, ?> colSupName;
 
     @FXML
     private TableColumn<?, ?> colSupplierId;
 
     @FXML
-    private TextField txtCostPrice;
+    private TextField txtAddress;
 
     @FXML
-    private TextField txtMedicineID;
+    private TextField txtEmail;
 
     @FXML
-    private TextField txtQtyOnStock;
+    private TextField txtPhone;
 
     @FXML
-    private TextField txtSellingPrice;
-
-    @FXML
-    private TextField txtStockID;
+    private TextField txtSupplierContact;
 
     @FXML
     private TextField txtSupplierID;
+
+    @FXML
+    private TextField txtSupplierName;
 
     @FXML
     void btnAddSupplierOnAction(ActionEvent event) {
