@@ -1,13 +1,25 @@
 package com.dev.controller;
 
+import com.dev.model.Medicine;
+import com.dev.service.MedicineService;
+import com.dev.service.impl.MedicineServiceImpl;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class MedicineFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MedicineFormController implements Initializable {
+
+    MedicineService medicineService = new MedicineServiceImpl();
+
+    @FXML
+    private TableView<Medicine> tblMedicine;
 
     @FXML
     private ComboBox<?> cmbBrandName;
@@ -16,7 +28,10 @@ public class MedicineFormController {
     private TableColumn<?, ?> colBrandName;
 
     @FXML
-    private TableColumn<?, ?> colExpDate;
+    private TableColumn<?, ?> colCategory;
+
+    @FXML
+    private TableColumn<?, ?> colDescription;
 
     @FXML
     private TableColumn<?, ?> colId;
@@ -25,13 +40,13 @@ public class MedicineFormController {
     private TableColumn<?, ?> colName;
 
     @FXML
-    private TableColumn<?, ?> colPrice;
+    private TextField txtBrandName;
 
     @FXML
-    private TableColumn<?, ?> colQuantity;
+    private TextField txtCategory;
 
     @FXML
-    private DatePicker txtDateExp;
+    private TextField txtDescription;
 
     @FXML
     private TextField txtID;
@@ -39,30 +54,74 @@ public class MedicineFormController {
     @FXML
     private TextField txtMedicineName;
 
-    @FXML
-    private TextField txtPrice;
 
-    @FXML
-    private TextField txtQuantity;
+
+    ObservableList<Medicine> medicinesList = FXCollections.observableArrayList();
 
     @FXML
     void btnAddMedicineOnAction(ActionEvent event) {
+        medicineService.addMedicine(new Medicine(
+                Integer.parseInt(txtID.getText()),
+                txtMedicineName.getText(),
+                txtCategory.getText(),
+                txtBrandName.getText(),
+                txtDescription.getText()
+        ));
 
+        loadTable();
     }
 
     @FXML
     void btnDeleteMedicineOnAction(ActionEvent event) {
-
+        medicineService.deleteMedicine(Integer.parseInt(txtID.getText()));
+        loadTable();
     }
 
     @FXML
     void btnSearchMedicineOnAction(ActionEvent event) {
+        Medicine medicine = medicineService.searchMedicineById(Integer.parseInt(txtID.getText()));
 
+        if(medicine != null) {
+            //setDataToFields(medicine);
+
+            for (Medicine medItems : tblMedicine.getItems()){
+                if(medItems.getId().equals(medicine.getId())){
+                    tblMedicine.getSelectionModel().select(medItems);
+                    tblMedicine.scrollTo(medItems);
+                    break;
+                }
+            }
+        }else {
+            new Alert(Alert.AlertType.WARNING,"Medicine Not Found!").show();
+        }
     }
 
     @FXML
     void btnUpdateMedicineOnAction(ActionEvent event) {
+        medicineService.updateMedicine(new Medicine(
+                Integer.parseInt(txtID.getText()),
+                txtMedicineName.getText(),
+                txtCategory.getText(),
+                txtBrandName.getText(),
+                txtDescription.getText()
+        ));
+
+        loadTable();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadTable();
+
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colBrandName.setCellValueFactory(new PropertyValueFactory<>("brandName"));
+        colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 
     }
 
+    void loadTable(){
+        tblMedicine.setItems(medicineService.getAllMedicines());
+    }
 }
