@@ -92,6 +92,7 @@ public class SupplierRepositoryImpl implements SupplierRepository {
 
     @Override
     public Supplier searchSupplierById(Integer id) {
+        Supplier supplier = null;
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM suppliers WHERE supplierID = ?");
@@ -99,10 +100,21 @@ public class SupplierRepositoryImpl implements SupplierRepository {
             preparedStatement.setObject(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
+            while (resultSet.next()){
+                 supplier = new Supplier(
+                        resultSet.getInt("SupplierID"),
+                        resultSet.getString("SupplierName"),
+                        resultSet.getString("ContactPerson"),
+                        resultSet.getString("PhoneNumber"),
+                        resultSet.getString("Email"),
+                        resultSet.getString("Address")
+                );
+            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+        return supplier;
     }
 }

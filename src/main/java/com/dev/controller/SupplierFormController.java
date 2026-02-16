@@ -6,6 +6,7 @@ import com.dev.service.impl.SupplierServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -69,6 +70,7 @@ public class SupplierFormController implements Initializable {
         ));
 
         loadTable();
+        clearText();
 
     }
 
@@ -79,8 +81,19 @@ public class SupplierFormController implements Initializable {
 
     @FXML
     void btnSearchSupplierOnAction(ActionEvent event) {
-        supplierService.searchSupplierById(Integer.parseInt(txtSupplierID.getText()));
+       Supplier supplier =  supplierService.searchSupplierById(Integer.parseInt(txtSupplierID.getText()));
 
+       if(supplier != null) {
+           for (Supplier supplierItems : tblSupplier.getItems()) {
+               if (supplierItems.getSupplierId().equals(supplier.getSupplierId())) {
+                   tblSupplier.getSelectionModel().select(supplierItems);
+                   tblSupplier.scrollTo(supplierItems);
+                   break;
+               }
+           }
+       }else {
+           new Alert(Alert.AlertType.WARNING,"Supplier Not Found!").show();
+       }
     }
 
     @FXML
@@ -95,6 +108,7 @@ public class SupplierFormController implements Initializable {
         ));
 
         loadTable();
+        clearText();
 
     }
 
@@ -115,5 +129,14 @@ public class SupplierFormController implements Initializable {
 
     void loadTable(){
         tblSupplier.setItems(supplierService.getAllSuppliers());
+    }
+
+    void clearText(){
+        txtSupplierID.clear();
+        txtSupplierName.clear();
+        txtSupplierContact.clear();
+        txtAddress.clear();
+        txtEmail.clear();
+        txtPhone.clear();
     }
 }
