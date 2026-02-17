@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="634.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dev.controller.InventoryFormController">
    <children>
       <ImageView fitHeight="634.0" fitWidth="591.0" layoutX="324.0" layoutY="12.0" opacity="0.15">
@@ -41,9 +40,6 @@
             <TableColumn fx:id="colQtyOnHand" prefWidth="79.0" text="Qty In Stock" />
             <TableColumn fx:id="colCostPrice" minWidth="0.0" prefWidth="76.0" text="Cost Price" />
             <TableColumn fx:id="colSellingPrice" prefWidth="117.0" text="Selling Price" />
-            <TableColumn fx:id="colPrice" prefWidth="111.199951171875" text="Price" />
-            <TableColumn prefWidth="132.00006103515625" text="Name" />
-            <TableColumn fx:id="colBrandName1" prefWidth="79.0" text="Qty In Stock" />
          </columns>
       </TableView>
       <TextField fx:id="txtMedicineID" layoutX="550.0" layoutY="130.0" promptText="Medicine ID" />

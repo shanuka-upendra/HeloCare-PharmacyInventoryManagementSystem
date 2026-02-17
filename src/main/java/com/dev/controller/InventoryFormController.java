@@ -1,19 +1,23 @@
 package com.dev.controller;
 
+import com.dev.model.Inventory;
+import com.dev.service.InventoryService;
+import com.dev.service.impl.InevntoryServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class InventoryFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class InventoryFormController implements Initializable {
+
+    InventoryService inventoryService = new InevntoryServiceImpl();
 
     @FXML
     private TableColumn<?, ?> colBatchNumber;
-
-    @FXML
-    private TableColumn<?, ?> colBrandName1;
 
     @FXML
     private TableColumn<?, ?> colCostPrice;
@@ -28,9 +32,6 @@ public class InventoryFormController {
     private TableColumn<?, ?> colMedicineID;
 
     @FXML
-    private TableColumn<?, ?> colPrice;
-
-    @FXML
     private TableColumn<?, ?> colQtyOnHand;
 
     @FXML
@@ -43,7 +44,7 @@ public class InventoryFormController {
     private TableColumn<?, ?> colSupplierId;
 
     @FXML
-    private TableView<?> tblInventory;
+    private TableView<Inventory> tblInventory;
 
     @FXML
     private TextField txtCostPrice;
@@ -74,22 +75,82 @@ public class InventoryFormController {
 
     @FXML
     void btnAddInventoryOnAction(ActionEvent event) {
+        inventoryService.addStock(new Inventory(
+                Integer.parseInt(txtStockID.getText()),
+                Integer.parseInt(txtMedicineID.getText()),
+                Integer.parseInt(txtSupplierID.getText()),
+                txtIBatchNumber.getText(),
+                txtManufactureDateExp.getValue(),
+                txtStockDateExp.getValue(),
+                Integer.parseInt(txtQtyOnStock.getText()),
+                Double.parseDouble(txtCostPrice.getText()),
+                Double.parseDouble(txtSellingPrice.getText())
+                ));
 
+        loadTable();
     }
 
     @FXML
     void btnDeleteInventoryOnAction(ActionEvent event) {
+        inventoryService.deleteStock(Integer.parseInt(txtStockID.getText()));
+        loadTable();
 
     }
 
     @FXML
     void btnSearchInventoryOnAction(ActionEvent event) {
+        Inventory inventory = inventoryService.searchStockById(Integer.parseInt(txtStockID.getText()));
 
+        if (inventory != null) {
+            for (Inventory inventoryItem : tblInventory.getItems()) {
+                if (inventoryItem.getBatchID().equals(inventory.getBatchID())) {
+                    tblInventory.getSelectionModel().select(inventoryItem);
+                    tblInventory.scrollTo(inventoryItem);
+                    break;
+                }
+            }
+        }else{
+            new Alert(Alert.AlertType.WARNING,"Inventory or Stock Record Not Found!").show();
+
+        }
     }
 
     @FXML
     void btnUpdateInventoryOnAction(ActionEvent event) {
+        inventoryService.updateStock(new Inventory(
+                Integer.parseInt(txtStockID.getText()),
+                Integer.parseInt(txtMedicineID.getText()),
+                Integer.parseInt(txtSupplierID.getText()),
+                txtIBatchNumber.getText(),
+                txtManufactureDateExp.getValue(),
+                txtStockDateExp.getValue(),
+                Integer.parseInt(txtQtyOnStock.getText()),
+                Double.parseDouble(txtCostPrice.getText()),
+                Double.parseDouble(txtSellingPrice.getText())
+        ));
+
+        loadTable();
 
     }
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadTable();
+
+        colStockID.setCellValueFactory(new PropertyValueFactory<>("batchID"));
+        colMedicineID.setCellValueFactory(new PropertyValueFactory<>("medicineID"));
+        colSupplierId.setCellValueFactory(new PropertyValueFactory<>("supplierID"));
+        colBatchNumber.setCellValueFactory(new PropertyValueFactory<>("batchNumber"));
+        colManDate.setCellValueFactory(new PropertyValueFactory<>("manufactureDate"));
+        colExpDate.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
+        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyInStock"));
+        colCostPrice.setCellValueFactory(new PropertyValueFactory<>("costPrice"));
+        colSellingPrice.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
+
+    }
+
+    void loadTable(){
+        tblInventory.setItems(inventoryService.getAllDetails());
+    }
 }
