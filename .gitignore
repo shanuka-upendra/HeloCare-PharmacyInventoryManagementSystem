@@ -1,2 +1,13 @@
 # Project exclude paths
 /target/
+/.idea/dataSources/cdc5fd0e-3720-4951-bade-35309471013d/storage_v2/_src_/schema/sys.zb4BAA.meta
+/src/main/java/com/dev/util/test.txt
+/.idea/dataSources/cdc5fd0e-3720-4951-bade-35309471013d/storage_v2/_src_/schema/performance_schema.kIw0nw.meta
+/.idea/dataSources/cdc5fd0e-3720-4951-bade-35309471013d.xml
+/.idea/dataSources.local.xml
+/.idea/dataSources/cdc5fd0e-3720-4951-bade-35309471013d/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
+/.idea/dataSources/cdc5fd0e-3720-4951-bade-35309471013d/storage_v2/_src_/schema/mysql.osA4Bg.meta
+
+# Local IDE metadata
+/.idea/dataSources.xml
+/.idea/copilot.data.migration.ask2agent.xml
