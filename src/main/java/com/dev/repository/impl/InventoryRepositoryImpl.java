@@ -2,7 +2,7 @@ package com.dev.repository.impl;
 
 import com.dev.db.DBConnection;
 import com.dev.model.Inventory;
-import com.dev.repository.InevntoryRepository;
+import com.dev.repository.InventoryRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class InventoryRepositoryImpl implements InevntoryRepository {
+public class InventoryRepositoryImpl implements InventoryRepository {
 
 
     @Override
