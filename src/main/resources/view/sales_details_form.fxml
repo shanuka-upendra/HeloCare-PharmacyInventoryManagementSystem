@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,11 +17,11 @@
    <children>
       <AnchorPane prefHeight="634.0" prefWidth="1000.0">
          <children>
-            <ImageView fitHeight="634.0" fitWidth="591.0" layoutX="314.0" layoutY="2.0" opacity="0.15">
-               <image>
-                  <Image url="@../../../../../../../Users/shanu/OneDrive/Pictures/2374046.jpg" />
-               </image>
-            </ImageView>
+      <!-- <ImageView fitHeight="634.0" fitWidth="591.0" layoutX="314.0" layoutY="2.0" opacity="0.15"> -->
+      <!-- <image> -->
+      <!--  -->
+      <!-- </image> -->
+      <!-- </ImageView> -->
             <TextField fx:id="txtSaleDetailsID" layoutX="381.0" layoutY="120.0" promptText="Sale Detals ID" />
             <Label layoutX="546.0" layoutY="52.0" prefHeight="53.0" prefWidth="149.0" text="Sale Details ">
                <font>
@@ -29,7 +30,7 @@
             </Label>
             <TextField fx:id="txtBatchID" layoutX="700.0" layoutY="120.0" promptText="Batch ID" />
             <TextField fx:id="txtSubTotal" layoutX="700.0" layoutY="154.0" promptText="SubTotal" />
-            <TableView layoutX="276.0" layoutY="279.0" prefHeight="336.0" prefWidth="676.0">
+            <TableView fx:id="tblSalesDetails" layoutX="276.0" layoutY="279.0" prefHeight="336.0" prefWidth="676.0">
                <columns>
                   <TableColumn fx:id="colSaleDetailsID" prefWidth="96.0" text="Sale Details ID" />
                   <TableColumn fx:id="colSaleId" prefWidth="93.0" text="Sale ID" />
@@ -60,7 +61,7 @@
                </font>
             </Button>
             <TextField fx:id="txtQtySold" layoutX="380.0" layoutY="153.0" promptText="Quantity Sold" />
-            <Pane prefHeight="636.0" prefWidth="235.0" style="-fx-background-color: #9dd1cc;">
+            <Pane layoutX="-3.0" prefHeight="634.0" prefWidth="235.0" style="-fx-background-color: #9dd1cc;">
                <children>
                   <Label layoutX="21.0" layoutY="51.0" prefHeight="59.0" prefWidth="186.0" text="HeloCare - PIMS">
                      <font>
@@ -80,6 +81,36 @@
                         <Font name="System Italic" size="12.0" />
                      </font>
                   </Label>
+                  <Button layoutX="6.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #4791b7;" text="Dashboard" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button layoutX="6.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnMedicineOnAction" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #4791b7;" text="Medicine" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button layoutX="6.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #4791b7;" text="Supplier" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button layoutX="7.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnInventoryOnAction" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #4791b7;" text="Inventory" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button layoutX="7.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnSalesBillingOnAction" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #4791b7;" text="Sales &amp; Billing" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button layoutX="7.0" layoutY="417.0" mnemonicParsing="false" onAction="#btnSaleDetailsOnAction" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #4791b7;" text="Sale Details" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
                </children>
             </Pane>
             <TextField fx:id="txtSaleID" layoutX="541.0" layoutY="120.0" promptText="Sale ID" />
