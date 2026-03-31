@@ -5,16 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SalesAndBilling {
+public class SalesDetails {
+    private Integer saleDetailsId;
     private Integer saleId;
-    private LocalDate transactionDate;
-    private Double totalAmount;
-    private String paymentMethod;
-    private Double taxAmount;
+    private Integer batchId;
+    private Integer quantitySold;
+    private Double unitPrice;
+    private Double subTotal;
 }
