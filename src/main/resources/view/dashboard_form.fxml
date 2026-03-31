@@ -73,11 +73,11 @@
             </Button>
          </children>
       </Pane>
-      <ImageView fitHeight="634.0" fitWidth="593.0" layoutX="325.0" opacity="0.15">
-         <image>
-            <Image url="@../../../../../../../Users/shanu/OneDrive/Pictures/2374046.jpg" />
-         </image>
-      </ImageView>
+      <!-- <ImageView fitHeight="634.0" fitWidth="593.0" layoutX="325.0" opacity="0.15"> -->
+      <!-- <image> -->
+      <!--  -->
+      <!-- </image> -->
+      <!-- </ImageView> -->
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutX="310.0" layoutY="54.0" opacity="0.59" stroke="BLACK" strokeType="INSIDE" width="200.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
@@ -132,21 +132,21 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="738.0" layoutY="79.0">
-         <image>
-            <Image url="@../../../../../../../Users/shanu/Downloads/count.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="530.0" layoutY="79.0">
-         <image>
-            <Image url="@../../../../../../../Users/shanu/Downloads/return.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="322.0" layoutY="79.0">
-         <image>
-            <Image url="@../../../../../../../Users/shanu/Downloads/bar-chart.png" />
-         </image>
-      </ImageView>
+      <!-- <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="738.0" layoutY="79.0"> -->
+      <!-- <image> -->
+      <!--  -->
+      <!-- </image> -->
+      <!-- </ImageView> -->
+      <!-- <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="530.0" layoutY="79.0"> -->
+      <!-- <image> -->
+      <!--  -->
+      <!-- </image> -->
+      <!-- </ImageView> -->
+      <!-- <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="322.0" layoutY="79.0"> -->
+      <!-- <image> -->
+      <!--  -->
+      <!-- </image> -->
+      <!-- </ImageView> -->
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="169.0" layoutX="303.0" layoutY="193.0" stroke="BLACK" strokeType="INSIDE" width="627.0" />
       <LineChart fx:id="chartMonthlySales" layoutX="264.0" layoutY="187.0" prefHeight="186.0" prefWidth="668.0">
         <xAxis>
